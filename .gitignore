@@ -6,3 +6,4 @@ ExtentReports/
 .settings
 .project
 .classpath
+/target/
