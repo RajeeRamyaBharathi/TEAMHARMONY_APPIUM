@@ -2,7 +2,7 @@ package Hooks;
 
 import java.io.IOException;
 import java.net.URI;
-import Utilities.ConfigReader;
+import Utilities.configReader;
 import Utilities.drivermanager;
 import Utilities.loggerLoad;
 import io.appium.java_client.android.AndroidDriver;
@@ -23,7 +23,7 @@ public class hooks {
 	@Before
 	public void connectdevice() throws Throwable {
 		
-		ConfigReader config = new ConfigReader();
+		configReader config = new configReader();
 		String deviceId = config.device();
 
         // Check if emulator is already running
