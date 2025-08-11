@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-import Utilities.ConfigReader;
+import Utilities.configReader;
 import Utilities.drivermanager;
 import Utilities.loggerLoad;
 import io.appium.java_client.android.AndroidDriver;
@@ -32,7 +32,7 @@ public class hooks {
 	@Before
 	 public void setUp() throws Exception {
 		
-		ConfigReader config = new ConfigReader();
+		configReader config = new configReader();
 		String deviceId = config.device();
         // Check if emulator is already running
         if (!isEmulatorRunning(deviceId)) {
@@ -47,7 +47,7 @@ public class hooks {
         initializeDriver(deviceId, config);
 	}
 	
-        private void initializeDriver(String deviceId, ConfigReader config) throws Exception {
+        private void initializeDriver(String deviceId, configReader config) throws Exception {
             String appPath = System.getProperty("user.dir") + config.applocation();
             UiAutomator2Options options = new UiAutomator2Options()
                     .setAppWaitActivity("*")
