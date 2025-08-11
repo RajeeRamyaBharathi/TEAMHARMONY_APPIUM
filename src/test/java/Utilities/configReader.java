@@ -8,7 +8,7 @@ public class ConfigReader {
 
     private static Properties prop = new Properties();
 
-    // Load once in a static block
+
     static {
         try (InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream("Config.properties")) {
             if (input == null) {
