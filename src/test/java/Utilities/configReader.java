@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class configReader {
+public class ConfigReader {
 
     private static Properties prop = new Properties();
 
     // Load once in a static block
     static {
-        try (InputStream input = configReader.class.getClassLoader().getResourceAsStream("Config.properties")) {
+        try (InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream("Config.properties")) {
             if (input == null) {
                 throw new IOException("Config.properties file not found in classpath!");
             }
@@ -35,4 +35,12 @@ public class configReader {
     public String emulatorName() {
         return prop.getProperty("emulatorName");
     }
+    public String appPackage() {
+        return prop.getProperty("appPackage");
+    }
+
+    public String appActivity() {
+        return prop.getProperty("appActivity");
+    }
+
 }
