@@ -1,7 +1,6 @@
 @Preferences
 Feature: Preferences
 
- 
   Scenario: Verify navigation to Preferences tab
     Given the user is on the SkyTube home page
     When the user clicks on the three-dot menu at the top-right corner and selects "Preferences"

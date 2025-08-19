@@ -69,25 +69,23 @@ public class PreferencesPage {
 	}
 	        
 	public boolean isPreferencesDisplayed() {
-	            return preferences.isDisplayed() && preferences.getText().equals("Preferences");
-	        }
+		return preferences.isDisplayed() && preferences.getText().equals("Preferences");
+	}
 	        
 	public List<WebElement> getAllPreferencesMenuItems() {
-	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("android:id/title")));
-	            return driver.findElements(By.id("android:id/title"));
-	        }
-
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	    wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("android:id/title")));
+	    return driver.findElements(By.id("android:id/title"));
+	}
 
 	public boolean isPreferenceContentDisplayed() {
-	            List<WebElement> textViews = driver.findElements(AppiumBy.className("android.widget.TextView"));
-	            return !textViews.isEmpty();
-	        }
+		List<WebElement> textViews = driver.findElements(AppiumBy.className("android.widget.TextView"));
+	    return !textViews.isEmpty();
+	}
 
 	public void goBack() {
-	            driver.navigate().back();
-	        }
-
+		driver.navigate().back();
+	}
 
 	}
 	

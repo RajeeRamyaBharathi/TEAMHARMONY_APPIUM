@@ -47,8 +47,7 @@ public class PreferencesStep {
 	@Then("the user should see the menu option {string} and click the menuOption")
 	public void the_user_should_see_the_menu_option_and_click_the_menu_option(String menuOption) {
 		prefPage.menuOption(menuOption);
-		prefPage.goBack(); // Return to Preferences menu for next test
-	
+		prefPage.goBack();
 	}
 
 	@When("the user clicks each Preferences menu item")

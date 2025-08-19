@@ -27,36 +27,21 @@ public class SearchChannel {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		
-	}
+		}
 	
-	
-	@AndroidFindBy(id = "android:id/button3")
-	WebElement Okbtn;
-	
-	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
-	WebElement allowbtn;
-	
-	@AndroidFindBy(id = "free.rm.skytube.oss:id/skipButton")
-	WebElement skipbtn;
-	
-	@AndroidFindBy(id ="free.rm.skytube.oss:id/menu_search")
-	WebElement topSearchIcon;
-	
-	@AndroidFindBy(id = "free.rm.skytube.oss:id/search_src_text")
-	WebElement searchInput;
-	
-	@AndroidFindBy(id = "free.rm.skytube.oss:id/actionbarTitle")
-	WebElement searchResultTitle;
-	
+	@AndroidFindBy(id = "android:id/button3") WebElement Okbtn;
+	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button") WebElement allowbtn;
+	@AndroidFindBy(id = "free.rm.skytube.oss:id/skipButton") WebElement skipbtn;
+	@AndroidFindBy(id ="free.rm.skytube.oss:id/menu_search") WebElement topSearchIcon;
+	@AndroidFindBy(id = "free.rm.skytube.oss:id/search_src_text") WebElement searchInput;
+	@AndroidFindBy(id = "free.rm.skytube.oss:id/actionbarTitle") WebElement searchResultTitle;
 	@AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"free.rm.skytube.oss:id/grid_view\"]")
 	WebElement splcaseView;
 	
-	// Click OK button
 	public void clickOkButton() {
 	    wait.until(ExpectedConditions.elementToBeClickable(Okbtn)).click();
 	}
 
-	// Allow permissions
 	public void allowPermissionsIfPresent() {
 	    try {
 	        if (allowbtn.isDisplayed()) {
@@ -65,7 +50,6 @@ public class SearchChannel {
 	    } catch (Exception ignored) {}
 	}
 
-	// Skip intro
 	public void skipIntroIfPresent() {
 	    try {
 	        if (skipbtn.isDisplayed()) {
@@ -74,12 +58,10 @@ public class SearchChannel {
 	    } catch (Exception ignored) {}
 	}
 
-	// Open search tab
 	public void openSearch() {
 	    wait.until(ExpectedConditions.elementToBeClickable(topSearchIcon)).click();
 	}
 
-	// Enter search text and wait for results or empty state
 	public void enterSearchText(String text){
 		 wait.until(ExpectedConditions.visibilityOf(searchInput));
 		    searchInput.clear();
@@ -88,7 +70,6 @@ public class SearchChannel {
 		    action.sendKeys(text + Keys.ENTER).perform();
 		}
 	
-   // Check if search result contains expected text
 	public boolean isSearchResultVisible(String expectedText) {
 	    try {
 	        List<WebElement> videoTitles = driver.findElements(By.className("android.widget.TextView"));
@@ -101,8 +82,6 @@ public class SearchChannel {
 	                }
 	            }
 	        }
-
-	        // Log visible text if expected text not found
 	        System.out.println("Expected text '" + expectedText + "' not found. All visible text:");
 	        printAllVisibleTexts();
 	        
@@ -111,8 +90,6 @@ public class SearchChannel {
 	    }
 	    return false;
 	}
-
-
 	
 	public void printAllVisibleTexts() {
 	    List<WebElement> elements = driver.findElements(By.className("android.widget.TextView"));
@@ -132,8 +109,6 @@ public class SearchChannel {
 	    }
 	}
 
-     // Check if search result is empty (no videos)
-	// Check if search result is empty (no videos or all empty text)
 	public boolean isSearchResultEmpty() {
 	    try {
 	        List<WebElement> results = splcaseView.findElements(By.className("android.widget.TextView"));
@@ -159,8 +134,4 @@ public class SearchChannel {
 	    }
 	}
 
-
-	
-
-	
 }

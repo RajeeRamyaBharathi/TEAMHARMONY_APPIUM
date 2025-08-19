@@ -4,9 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
 import PageObjects.Bookmarkspage;
-import Utilities.drivermanager;
 import Utilities.loggerLoad;
-import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -47,11 +45,11 @@ public class Bookmarksteps {
 	  String videoname = bookpage.checkbookmarkpage();
 	  loggerLoad.info("Bookmarked video:"+videoname);
 	  assertEquals(videoname, "Zootopia 2 | Trailer", "Incorrect Videoname"); 
-	   bookpage.trendingpage();
-	   bookpage.unbookmarkvideo();
+	  bookpage.trendingpage();
+	  bookpage.unbookmarkvideo();
 	  String emptytext = bookpage.checkunbookmarkpage();
 	  loggerLoad.info(emptytext);
-		assertEquals(emptytext, "Bookmark some videos to find them here.", "Incorrect message");
+	  assertEquals(emptytext, "Bookmark some videos to find them here.", "Incorrect message");
 	}
 
 	@Given("The user bookmarks a video")

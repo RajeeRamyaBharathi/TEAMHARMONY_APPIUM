@@ -26,36 +26,22 @@ WebDriverWait wait;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		}
 	
-	@AndroidFindBy(id = "android:id/button3")
-	WebElement Okbtn;
-	
-	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
-	WebElement allowbtn;
-	
-	@AndroidFindBy(id = "free.rm.skytube.oss:id/skipButton")
-	WebElement skipbtn;
-	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/options_button\").instance(0)")
-	WebElement dotaftersearch;
-	
+	@AndroidFindBy(id = "android:id/button3") WebElement Okbtn;
+	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button") WebElement allowbtn;
+	@AndroidFindBy(id = "free.rm.skytube.oss:id/skipButton") WebElement skipbtn;
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/options_button\").instance(0)") WebElement dotaftersearch;
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"free.rm.skytube.oss:id/title\" and @text=\"Channel...\"]")
 	WebElement channelbtn;
-	
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"free.rm.skytube.oss:id/title\" and @text=\"Subscribe\"]")
 	WebElement subscribebtn;
-	
 	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"SkyTube\"]")
 	WebElement menuoption;
-	
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/sub_channel_name_text_view")
 	public WebElement subchannel;
-	
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/channel_subscribe_button")
 	public WebElement subbtnchannel;
-	
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"free.rm.skytube.oss:id/title\" and @text=\"Unsubscribe\"]")
 	WebElement dotUnsubscribe;
-	
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Copy URL\")")
 	WebElement copyurlBtn;
 	
@@ -135,11 +121,5 @@ WebDriverWait wait;
     public void openSubscribedChannel() {
         wait.until(ExpectedConditions.elementToBeClickable(subchannel)).click();
     }
-
-
-
-
-
-	
 
 }

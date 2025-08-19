@@ -21,8 +21,6 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-
-
 public class hooks {
 	
 	AndroidDriver driver;
@@ -34,15 +32,14 @@ public class hooks {
 		
 		configReader config = new configReader();
 		String deviceId = config.device();
-        // Check if emulator is already running
+        // Checking --if emulator is already running
         if (!isEmulatorRunning(deviceId)) {
             startEmulator(config.emulatorName());
             waitForDeviceToBoot();
         } else {
             loggerLoad.info("Emulator already running: " + deviceId);
         }
-
-        // Start Appium server
+        // Starting Appium server
         startAppiumServer();
         initializeDriver(deviceId, config);
 	}
@@ -74,7 +71,7 @@ public class hooks {
         		}
         		
             } catch (Exception e) {
-                loggerLoad.error("❌ Screenshot failed: " + e.getMessage());
+                loggerLoad.error("Screenshot failed: " + e.getMessage());
             }
         	
         	try {
@@ -82,7 +79,7 @@ public class hooks {
                 sendTestInfoToAppium(scenario, driver);
             } 
         	} catch (Exception e) {
-                loggerLoad.error("❌ Sending test info failed: " + e.getMessage());
+                loggerLoad.error("Sending test info failed: " + e.getMessage());
             }
         	
         	try {
@@ -92,9 +89,9 @@ public class hooks {
                  loggerLoad.info("Driver quit.");
             }
         	} catch (Exception e) {
-                loggerLoad.error("❌ Driver quit failed: " + e.getMessage());
+                loggerLoad.error("Driver quit failed: " + e.getMessage());
             }
-            	 // ✅ Fetch and save Appium HTML report
+            	 //Fetch and save Appium HTML report
                 try {
                 	if(driver!=null) {
                     URL appiumServerUrl = driver.getRemoteAddress();
@@ -119,7 +116,6 @@ public class hooks {
                         File reportDir = new File("target/appium-reports");
                         if (!reportDir.exists()) reportDir.mkdirs();
                         File reportFile = new File(reportDir, scenarioName + "_" + timestamp + ".html");
-                        //File reportFile = new File(reportDir, "report.html");
                         Files.write(reportFile.toPath(), reportHtml.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));
 
                         loggerLoad.info(" Appium HTML report saved to: " + reportFile.getAbsolutePath());
@@ -128,11 +124,9 @@ public class hooks {
                     }
                 } 
                 }catch (Exception e) {
-                    loggerLoad.error(" Failed to fetch or save Appium HTML report: " + e.getMessage());
+                    loggerLoad.error("Failed to fetch or save Appium HTML report: " + e.getMessage());
                 }
-
-        
-        
+       
         if (service != null && service.isRunning()) {
             service.stop();
             loggerLoad.info("Appium server stopped.");
@@ -224,7 +218,7 @@ public class hooks {
         String[] command = { "adb", "shell", "getprop", "sys.boot_completed" };
         boolean booted = false;
         int attempts = 0;
-        int maxAttempts = 30; // wait max 1 minute
+        int maxAttempts = 30; 
         while (!booted && attempts < maxAttempts) {
             Process process = new ProcessBuilder(command).start();
             String result = new String(process.getInputStream().readAllBytes()).trim();
@@ -245,7 +239,7 @@ public class hooks {
         service = new AppiumServiceBuilder()
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
-                .withArgument(() -> "--use-plugins", "appium-reporter-plugin,element-wait") // ✅ Enable plugin
+                .withArgument(() -> "--use-plugins", "appium-reporter-plugin,element-wait") //Enabling Plugin here
                 .withEnvironment(Map.of("APPIUM_REPORTER_CONFIG", "reporter.config.json"))
                 .build();
         service.start();
@@ -258,7 +252,7 @@ public class hooks {
                 break;
             }
         try {
-            Thread.sleep(1000); // Wait 5 seconds for Appium server to fully initialize
+            Thread.sleep(1000);
         } catch (InterruptedException ignored) {
         }
         retries--;
@@ -268,5 +262,3 @@ public class hooks {
         }
     }
 }
-
-
