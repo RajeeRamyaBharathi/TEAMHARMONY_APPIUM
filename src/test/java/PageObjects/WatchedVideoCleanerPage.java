@@ -148,7 +148,7 @@ public class WatchedVideoCleanerPage {
 		videoOptions.click();
 		MarkasWatched.click();
 	}
-    
+
     public void downloadvideo() throws Exception{
 		searchbox.clear();
 		searchbox.click();
