@@ -12,7 +12,7 @@ Feature: Watched Video Cleaner in SkyTube
     Given The user is in the Watched Video Cleaner popup
     When The user clicks the CLEAN button without selecting any options
     Then The user should see the videos are present in the Downloads and Bookmark tab
-    
+
   Scenario: Clean watched downloads only
     Given The user is in the Watched Video Cleaner popup
     When The user selects "Remove watched downloads" and clicks the CLEAN button

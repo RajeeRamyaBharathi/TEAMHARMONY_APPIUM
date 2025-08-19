@@ -19,44 +19,19 @@ public class WatchedVideoCleanerPage {
     AndroidDriver driver;
     WebDriverWait wait;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Watched Video Cleaner\")")
-    public WebElement watchedVideoCleanerMenuItem;
-
-    @AndroidFindBy(id = "free.rm.skytube.oss:id/clean_watched_downloads")
-    public WebElement removeWatchedDownloadsCheckbox;
-
-    @AndroidFindBy(id = "free.rm.skytube.oss:id/clean_watched_bookmarks")
-    public WebElement removeWatchedBookmarksCheckbox;
-
-    @AndroidFindBy(id = "free.rm.skytube.oss:id/md_buttonDefaultPositive")
-    public WebElement cleanButton;
-    
-    @AndroidFindBy(id = "free.rm.skytube.oss:id/md_buttonDefaultNegative")
-    public WebElement CancelButton;
-    
-    @AndroidFindBy(id ="free.rm.skytube.oss:id/menu_search")
-    public WebElement searchbox;
-    
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/options_button\").instance(0)")
-    public WebElement videoOptions;
-    
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/content\").instance(3)")
-    public WebElement selectbookmark1;
-    
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/content\").instance(7)")
-    public WebElement MarkasWatched;
-    
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Download\")") 
-    public WebElement download;
-   
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Navigate up\")")
-    public WebElement Navigate;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"DOWNLOADS\")")
-    public WebElement downloadsTab;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"BOOKMARKS\")")
-    public WebElement bookmarksTab;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Watched Video Cleaner\")") public WebElement watchedVideoCleanerMenuItem;
+    @AndroidFindBy(id = "free.rm.skytube.oss:id/clean_watched_downloads") public WebElement removeWatchedDownloadsCheckbox;
+    @AndroidFindBy(id = "free.rm.skytube.oss:id/clean_watched_bookmarks") public WebElement removeWatchedBookmarksCheckbox;
+    @AndroidFindBy(id = "free.rm.skytube.oss:id/md_buttonDefaultPositive") public WebElement cleanButton;
+    @AndroidFindBy(id = "free.rm.skytube.oss:id/md_buttonDefaultNegative") public WebElement CancelButton;
+    @AndroidFindBy(id ="free.rm.skytube.oss:id/menu_search") public WebElement searchbox;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/options_button\").instance(0)") public WebElement videoOptions;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/content\").instance(3)") public WebElement selectbookmark1;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/content\").instance(7)") public WebElement MarkasWatched;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Download\")") public WebElement download;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Navigate up\")") public WebElement Navigate;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"DOWNLOADS\")") public WebElement downloadsTab;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"BOOKMARKS\")") public WebElement bookmarksTab;
 
     public WatchedVideoCleanerPage() {
         this.driver = drivermanager.getdriver();

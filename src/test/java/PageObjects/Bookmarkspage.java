@@ -24,16 +24,13 @@ public class Bookmarkspage {
 	@AndroidFindBy(id = "android:id/button3") public WebElement changesInVersionOkButton;
 	@AndroidFindBy(uiAutomator  = "new UiSelector().text(\"BOOKMARKS\")") public WebElement bookmarktab;
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/noBookmarkedVideosText") public	WebElement emptybookmark;
-	
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/menu_search") public WebElement searchbox;
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/options_button\").instance(0)") public WebElement videooptions;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Bookmark\")") public WebElement selectbookmark1;
 	@AndroidFindBy(uiAutomator = "new UiSelector().description(\"Navigate up\")") public WebElement navigateback;
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/title_text_view") public WebElement Bookmarkitemname; 
-	
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"TRENDING (US)\")") public WebElement trendingpage;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Unbookmark\")") public WebElement unbookmark;
-	
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/options_button") public WebElement moreoptions;
 	
 	public Bookmarkspage(){

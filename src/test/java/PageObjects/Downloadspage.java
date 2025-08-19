@@ -22,19 +22,15 @@ public class Downloadspage {
 	@AndroidFindBy(id = "android:id/button3") public WebElement changesInVersionOkButton;
 	@AndroidFindBy(uiAutomator  = "new UiSelector().text(\"DOWNLOADS\")") public WebElement downloadstab;
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/noDownloadedVideosText") public	WebElement emptydownloads;
-	
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/menu_search") public WebElement searchbox;
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"free.rm.skytube.oss:id/options_button\").instance(0)") public WebElement videooptions;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Download\")") public WebElement download;
-	
 	@AndroidFindBy(uiAutomator = "new UiSelector().description(\"Navigate up\")") public WebElement navigateback;
 	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_deny_button") public WebElement denynotification;
 	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button") public WebElement allowaccessdevice;
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/title_text_view") public WebElement downloaditemname;
-	
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"TRENDING (US)\")") public WebElement trendingpage;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Delete Download\")") public WebElement deletedownload;
-	
 	@AndroidFindBy(id = "free.rm.skytube.oss:id/options_button") public WebElement moreoptions;
 	
 	public Downloadspage(){

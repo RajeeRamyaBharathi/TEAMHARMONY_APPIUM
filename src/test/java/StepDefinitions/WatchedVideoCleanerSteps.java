@@ -35,7 +35,8 @@ public class WatchedVideoCleanerSteps {
         prefPage = new PreferencesPage();
         cleanerPage = new WatchedVideoCleanerPage();
         prefPage.changeinversionok();
-        // Setup: Ensure at least one bookmark & one download exist
+
+        //Bookmark and download one video
         cleanerPage.downloadvideo();
         prefPage.notification();
         prefPage.notification();
@@ -54,15 +55,10 @@ public class WatchedVideoCleanerSteps {
 
     @Then("The user should see the videos are present in the Downloads and Bookmark tab")
     public void the_user_should_see_the_videos_are_present_in_the_Downloads_and_Bookmark_tab() {
-    	  // Open Downloads tab and check
         cleanerPage.openDownloadsTab();
-        Assert.assertTrue(cleanerPage.areDownloadedVideosPresent(), 
-            "No videos found in Downloads tab");
-
-        // Open Bookmarks tab and check
+        Assert.assertTrue(cleanerPage.areDownloadedVideosPresent(), "No videos found in Downloads tab");
         cleanerPage.BookmarksTab();
-        Assert.assertTrue(cleanerPage.areBookmarkedVideosPresent(), 
-            "No videos found in Bookmarks tab");
+        Assert.assertTrue(cleanerPage.areBookmarkedVideosPresent(), "No videos found in Bookmarks tab");
     }
     
     @When("The user selects {string} and clicks the CLEAN button")
@@ -103,7 +99,6 @@ public class WatchedVideoCleanerSteps {
     public void all_watched_videos_should_be_removed_from_both_tabs() {
         cleanerPage.openDownloadsTab();
         Assert.assertFalse(cleanerPage.areDownloadedVideosPresent(), "Downloaded videos still present after cleaning both");
-
         cleanerPage.BookmarksTab();
         Assert.assertFalse(cleanerPage.areBookmarkedVideosPresent(), "Bookmarked videos still present after cleaning both");
     }
