@@ -16,22 +16,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>17</maven.compiler.release>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.11.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>9.5.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+  <dependencies>
+   <dependency>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>7.11.0</version>
+<scope>test</scope>
+</dependency>
+ 
+<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+<dependency>
+<groupId>io.appium</groupId>
+<artifactId>java-client</artifactId>
+<version>10.0.0</version>
+</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
