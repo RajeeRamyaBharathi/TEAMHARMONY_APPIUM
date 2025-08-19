@@ -23,7 +23,7 @@ public class VideoBlockerPage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Language and Region Filters\")") public WebElement languageRegionFiltersOption;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Other Filters\")") public WebElement otherFiltersOption;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"android:id/checkbox\").instance(0)") public WebElement videoBlockerCheckbox;
-
+  
     public VideoBlockerPage() {
         this.driver = drivermanager.getdriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

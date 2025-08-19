@@ -23,11 +23,9 @@ public class PreferencesPage {
 	@AndroidFindBy(id = "android:id/button3") public WebElement changesInVersionOkButton;
 	@AndroidFindBy(accessibility = "More options") public WebElement moreOptions;
 	@AndroidFindBy(xpath = "(//android.widget.LinearLayout[@resource-id=\"free.rm.skytube.oss:id/content\"])[3]") public WebElement preferences;
-	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_deny_button") public WebElement NotAllowNotifications;
-	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Preferences\")")
-	public WebElement PreferencesView;
+	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button") public WebElement AllowNotifications;
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Preferences\")")public WebElement PreferencesView;
 	
-
 	public PreferencesPage(){
 		this.driver = drivermanager.getdriver();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -49,8 +47,8 @@ public class PreferencesPage {
 	
 	public void notification() {
 		  try {
-	            if (NotAllowNotifications.isDisplayed()) {
-	            	NotAllowNotifications.click();
+	            if (AllowNotifications.isDisplayed()) {
+	            	AllowNotifications.click();
 	            }
 	        } catch (Exception e) {
 	            // Do nothing if permission dialog not shown
@@ -89,4 +87,3 @@ public class PreferencesPage {
 
 	}
 	
-

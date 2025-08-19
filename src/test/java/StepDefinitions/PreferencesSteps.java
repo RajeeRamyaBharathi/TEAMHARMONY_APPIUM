@@ -11,7 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class PreferencesStep {
+public class PreferencesSteps {
 	PreferencesPage prefPage;
 	
 	
@@ -24,15 +24,15 @@ public class PreferencesStep {
 
 	@When("the user clicks on the three-dot menu at the top-right corner and selects {string}")
 	public void the_user_clicks_on_the_three_dot_menu_at_the_top_right_corner_and_selects(String string) {
-		 	prefPage.moreOptions();
-	        prefPage.preferences();
-	        prefPage.notification();
+		prefPage.moreOptions();
+	    prefPage.preferences();
+	    prefPage.notification();
 	}
 
 	@Then("the user is navigated to the Preferences tab")
 	public void the_user_is_navigated_to_the_preferences_tab() {
-		 	Assert.assertTrue(prefPage.PreferencesView.isDisplayed(), "Preferences view is not displayed");
-	        Assert.assertEquals(prefPage.PreferencesView.getText(), "Preferences", "Preferences title mismatch");
+		Assert.assertTrue(prefPage.PreferencesView.isDisplayed(), "Preferences view is not displayed");
+	    Assert.assertEquals(prefPage.PreferencesView.getText(), "Preferences", "Preferences title mismatch");
 	}
 
 	@Given("the user is on the Preferences tab")
@@ -42,6 +42,7 @@ public class PreferencesStep {
 		prefPage.moreOptions();
         prefPage.preferences();
         prefPage.notification();
+        loggerLoad.info("User is on Preferences tab");
 	}
 
 	@Then("the user should see the menu option {string} and click the menuOption")
@@ -58,25 +59,19 @@ public class PreferencesStep {
 	        // Re-fetch the menu items to avoid stale element reference
 	        List<WebElement> menuItems = prefPage.getAllPreferencesMenuItems();
 	        WebElement currentItem = menuItems.get(i);
-
 	        String name = currentItem.getText();
 	        loggerLoad.info("Clicking on menu item: " + name);
 	        currentItem.click();
-
-	        // Optional: Validate that the new screen or content appears here
+	        //Validate that the new screen or content appears here
 	        Assert.assertTrue(prefPage.isPreferenceContentDisplayed(), "Content not displayed for " + name);
-
 	        // Navigate back to Preferences page
 	        prefPage.goBack();
-	    }
-		
-		
+	    }			
 	}
 
 	@Then("the user should be able to view the content of each clicked Preferences menu item")
 	public void the_user_should_be_able_to_view_the_content_of_each_clicked_preferences_menu_item() {
 		Assert.assertTrue(prefPage.isPreferenceContentDisplayed(), "Preference content is not displayed.");
-
 	}
 
 }
